@@ -1,7 +1,5 @@
-// export default function Notification({ text, sum }) {
-//   return sum === 0 ? <p> {text}</p> : null;
-// }
+import css from './Notification.module.css';
 
 export default function Notification({ text }) {
-  return <p> {text}</p>;
+  return <p className={css.textNotification}> {text}</p>;
 }

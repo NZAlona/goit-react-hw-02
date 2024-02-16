@@ -12,7 +12,18 @@ export default function App() {
     bad: 0,
   };
 
-  const [clicks, setClicks] = useState(defaultClicks);
+  const [clicks, setClicks] = useState(() => {
+    const savedData = window.localStorage.getItem('saved-feedbacks');
+
+    if (savedData !== null) {
+      return JSON.parse(savedData);
+    }
+    return defaultClicks;
+  });
+
+  useEffect(() => {
+    window.localStorage.setItem('saved-feedbacks', JSON.stringify(clicks));
+  }, [clicks]);
 
   const updateFeedback = feedbackType => {
     if (feedbackType === 'reset') {

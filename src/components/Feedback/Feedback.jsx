@@ -1,9 +1,11 @@
+import css from './Feedback.module.css';
+
 export default function Feedback({ children, value, totalSum }) {
   return (
     <>
       {totalSum ? (
-        <p>
-          {children}:{value}
+        <p className={css.textFeedback}>
+          {children}: {value}
         </p>
       ) : null}
     </>
