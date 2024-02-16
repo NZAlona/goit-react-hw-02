@@ -5,7 +5,15 @@ export default function Options({ onUpdate, totalSum }) {
         <button onClick={() => onUpdate('good')}>Good</button>
         <button onClick={() => onUpdate('neutral')}>Neutral</button>
         <button onClick={() => onUpdate('bad')}>Bad</button>
-        {totalSum ? <button>Reset</button> : null}
+        {totalSum ? (
+          <button
+            onClick={() => {
+              onUpdate('reset');
+            }}
+          >
+            Reset
+          </button>
+        ) : null}
       </section>
     </>
   );
