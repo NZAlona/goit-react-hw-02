@@ -37,7 +37,6 @@ export default function App() {
   };
 
   const totalFeedback = clicks.good + clicks.neutral + clicks.bad;
-  const positivePercent = Math.round(((clicks.good + clicks.neutral) / totalFeedback) * 100);
 
   return (
     <>
@@ -47,21 +46,12 @@ export default function App() {
 
         {totalFeedback === 0 ? <Notification text="No feedback yet" /> : null}
 
-        <Feedback value={clicks.good} totalSum={totalFeedback}>
-          Good
-        </Feedback>
-        <Feedback value={clicks.neutral} totalSum={totalFeedback}>
-          Neutral
-        </Feedback>
-        <Feedback value={clicks.bad} totalSum={totalFeedback}>
-          Bad
-        </Feedback>
-        <Feedback value={totalFeedback} totalSum={totalFeedback}>
-          Total
-        </Feedback>
-        <Feedback value={positivePercent + '%'} totalSum={totalFeedback}>
-          Positive
-        </Feedback>
+        <Feedback
+          good={clicks.good}
+          neutral={clicks.neutral}
+          bad={clicks.bad}
+          totalSum={totalFeedback}
+        />
       </article>
     </>
   );
